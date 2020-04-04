@@ -22,6 +22,10 @@ abstract class EnumStatic
 	 */
 	abstract protected static function getEnums(): array;
 
+	final public static function createMapping(): EnumMapping {
+		return new EnumMapping(static::class, self::getEnumsCached());
+	}
+
 	/**
 	 * @param mixed[] $arguments
 	 */
