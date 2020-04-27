@@ -65,7 +65,7 @@ abstract class EnumStatic
 	{
 		if (!isset(self::$lists[static::class])) {
 			foreach (static::getEnums() as $value) {
-				self::$lists[static::class][$value] = true;
+				self::$lists[static::class][strtolower($value)] = true;
 			}
 		}
 
