@@ -5,9 +5,6 @@ namespace Utilitte\Enum;
 use Utilitte\Enum\Exceptions\InvalidArgumentException;
 use Utilitte\Enum\Storage\EnumStorage;
 
-/**
- * @internal
- */
 abstract class Enum
 {
 
