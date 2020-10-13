@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Codeception\Test\Unit;
+use Utilitte\Enum\Exceptions\EnumNotExistsException;
 use Utilitte\Enum\Exceptions\InvalidArgumentException;
 use Utilitte\Tests\TestEnum;
 
@@ -12,9 +13,7 @@ class EnumTest extends Unit
 	public function testEnum()
 	{
 		$this->assertSame(TestEnum::GET_ENUM(), TestEnum::GET_ENUM());
-		$this->assertSame(TestEnum::get('get_enum'), TestEnum::GET_ENUM());
 		$this->assertEquals('get_enum', TestEnum::GET_ENUM()->value());
-		$this->assertEquals('get_enum', TestEnum::get('get_enum')->value());
 	}
 
 	public function testInvalidCase()
@@ -26,7 +25,7 @@ class EnumTest extends Unit
 
 	public function testInvalidMethod()
 	{
-		$this->expectException(InvalidArgumentException::class);
+		$this->expectException(EnumNotExistsException::class);
 
 		TestEnum::GET_ENUMS();
 	}

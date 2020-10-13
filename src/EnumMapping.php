@@ -5,38 +5,22 @@ namespace Utilitte\Enum;
 final class EnumMapping
 {
 
-	/** @var string[] */
+	/** @var bool[] */
 	private array $mapping = [];
 
-	private string $class;
-
 	/**
-	 * @param bool[] $mapping
+	 * @param string[] $mapping
 	 */
-	public function __construct(string $class, array $mapping)
+	public function __construct(array $mapping)
 	{
-		$this->class = $class;
-		foreach ($mapping as $key => $bool) {
-			$this->mapping[strtoupper($key)] = $key;
+		foreach ($mapping as $key) {
+			$this->mapping[strtoupper($key)] = true;
 		}
 	}
 
-	public function getClass(): string
+	public function has(string $key): bool
 	{
-		return $this->class;
-	}
-
-	public function callableGetter(): callable
-	{
-		return [$this->getClass(), 'get'];
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getMapping(): array
-	{
-		return $this->mapping;
+		return isset($this->mapping[$key]);
 	}
 
 }

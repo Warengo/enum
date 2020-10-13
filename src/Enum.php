@@ -2,8 +2,17 @@
 
 namespace Utilitte\Enum;
 
-abstract class Enum extends EnumAbstract
+use Utilitte\Enum\Exceptions\InvalidArgumentException;
+use Utilitte\Enum\Storage\EnumStorage;
+
+/**
+ * @internal
+ */
+abstract class Enum
 {
+
+	/** @var EnumStorage[] */
+	private static array $storages = [];
 
 	private string $value;
 
@@ -15,6 +24,36 @@ abstract class Enum extends EnumAbstract
 	public function value(): string
 	{
 		return $this->value;
+	}
+
+	/**
+	 * @return string[]
+	 */
+	abstract protected static function getEnums(): array;
+
+	/**
+	 * @param mixed[] $arguments
+	 */
+	final public static function __callStatic(string $name, array $arguments)
+	{
+		if ($name !== strtoupper($name)) {
+			throw new InvalidArgumentException(sprintf('Called static class must be uppercase, %s given', $name));
+		}
+
+		return self::getStorage()->getEntry($name)->getEnum();
+	}
+
+	private static function getStorage(): EnumStorage
+	{
+		if (!isset(self::$storages[static::class])) {
+			self::$storages[static::class] = new EnumStorage(
+				static::class,
+				fn(string $value) => new static($value),
+				new EnumMapping(static::getEnums())
+			);
+		}
+
+		return self::$storages[static::class];
 	}
 
 	public function __toString(): string

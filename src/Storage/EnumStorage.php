@@ -3,6 +3,7 @@
 namespace Utilitte\Enum\Storage;
 
 use Utilitte\Enum\Enum;
+use Utilitte\Enum\EnumMapping;
 use Utilitte\Enum\Exceptions\InvalidArgumentException;
 use Utilitte\Enum\Exceptions\UnexpectedValueException;
 
@@ -12,11 +13,33 @@ class EnumStorage
 	/** @var Enum[] */
 	private array $storage = [];
 
+	/** @var EnumEntry[] */
+	private array $entries = [];
+
 	private string $class;
 
-	public function __construct(string $class)
+	/** @var callable */
+	private $factory;
+
+	private EnumMapping $mapping;
+
+	public function __construct(string $class, callable $factory, EnumMapping $mapping)
 	{
 		$this->class = $class;
+		$this->factory = $factory;
+		$this->mapping = $mapping;
+	}
+
+	public function getEntry(string $name): EnumEntry
+	{
+		$key = strtoupper($name);
+		$value = strtolower($name);
+
+		if (!isset($this->entries[$key])) {
+			$this->entries[$key] = new EnumEntry($key, $value, $this->class, $this->mapping->has($key), $this->factory);
+		}
+
+		return $this->entries[$key];
 	}
 
 	public function has(string $name): bool
