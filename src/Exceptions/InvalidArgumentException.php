@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Warengo\Enum\Exceptions;
+namespace Utilitte\Enum\Exceptions;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {

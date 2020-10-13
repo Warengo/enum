@@ -1,17 +1,17 @@
 {
-	"name": "warengo/enum",
+	"name": "utilitte/enum",
 	"type": "library",
 	"require": {
 		"php": ">=7.4"
 	},
 	"autoload": {
 		"psr-4": {
-			"Warengo\\Enum\\": "src/"
+			"Utilitte\\Enum\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Warengo\\Tests\\": "tests/src/"
+			"Utilitte\\Tests\\": "tests/src/"
 		}
 	},
 	"require-dev": {

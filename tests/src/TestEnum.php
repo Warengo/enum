@@ -1,8 +1,8 @@
 <?php declare(strict_types = 1);
 
-namespace Warengo\Tests;
+namespace Utilitte\Tests;
 
-use Warengo\Enum\Enum;
+use Utilitte\Enum\Enum;
 
 /**
  * @method static self GET_ENUM()

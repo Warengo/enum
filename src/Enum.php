@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Warengo\Enum;
+namespace Utilitte\Enum;
 
 abstract class Enum extends EnumStatic
 {

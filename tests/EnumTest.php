@@ -3,8 +3,8 @@
 namespace Tests;
 
 use Codeception\Test\Unit;
-use Warengo\Enum\Exceptions\InvalidArgumentException;
-use Warengo\Tests\TestEnum;
+use Utilitte\Enum\Exceptions\InvalidArgumentException;
+use Utilitte\Tests\TestEnum;
 
 class EnumTest extends Unit
 {

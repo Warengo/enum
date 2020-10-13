@@ -1,10 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace Warengo\Enum\Storage;
+namespace Utilitte\Enum\Storage;
 
-use Warengo\Enum\Enum;
-use Warengo\Enum\Exceptions\InvalidArgumentException;
-use Warengo\Enum\Exceptions\UnexpectedValueException;
+use Utilitte\Enum\Enum;
+use Utilitte\Enum\Exceptions\InvalidArgumentException;
+use Utilitte\Enum\Exceptions\UnexpectedValueException;
 
 class EnumStorage
 {

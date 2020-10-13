@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Warengo\Enum;
+namespace Utilitte\Enum;
 
 final class EnumMapping
 {
