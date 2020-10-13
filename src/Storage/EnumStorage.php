@@ -10,7 +10,7 @@ class EnumStorage
 {
 
 	/** @var Enum[] */
-	private $storage = [];
+	private array $storage = [];
 
 	private string $class;
 
