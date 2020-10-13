@@ -8,7 +8,7 @@ use Utilitte\Enum\Storage\EnumStorage;
 /**
  * @internal
  */
-abstract class EnumStatic
+abstract class EnumAbstract
 {
 
 	/** @var EnumStorage[] */

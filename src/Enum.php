@@ -2,7 +2,7 @@
 
 namespace Utilitte\Enum;
 
-abstract class Enum extends EnumStatic
+abstract class Enum extends EnumAbstract
 {
 
 	private string $value;

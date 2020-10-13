@@ -8,7 +8,7 @@ Create enum class
  * @method static self ENGLAND() 
  * @method static self USA() 
  */
-class CountryEnum 
+class CountryEnum extends Enum
 {
     protected static function getEnums(): array
     {
